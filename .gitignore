@@ -1,0 +1,7 @@
+*.suo
+*.*~
+[Tt]humbs.db
+
+# Ignore the following directories
+[Bb]in/
+[Dd]ebug/
