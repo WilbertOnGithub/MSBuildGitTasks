@@ -4,4 +4,4 @@
 
 # Ignore the following directories
 [Bb]in/
-[Dd]ebug/
+[Oo]bj/
