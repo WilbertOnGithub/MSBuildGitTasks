@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="demo" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<UsingTask AssemblyFile="$(MSBuildProjectDirectory)\FindLatestRelease\bin\Debug\C2SC.MSBuild.FindLatestRelease.dll"
+			   TaskName="FindLatestRelease" />
+
+	<ItemGroup>
+		<Dropfolder Include="d:\temp" />
+	</ItemGroup>
+
+	<Target Name="demo">
+		<FindLatestRelease DropFolder="@(Dropfolder)" ReleaseFolderName="release">
+			<Output PropertyName="PropFromTask" TaskParameter="LatestRelease" />
+		</FindLatestRelease>
+
+		<Message Text ="From Task: $(PropFromTask)" />
+	</Target>
+</Project>

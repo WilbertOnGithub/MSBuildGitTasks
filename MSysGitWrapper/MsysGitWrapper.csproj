@@ -8,8 +8,8 @@
     <ProjectGuid>{4D13D508-127D-4A20-8869-9E8B55409A19}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MSysGitWrapper</RootNamespace>
-    <AssemblyName>MSysGitWrapper</AssemblyName>
+    <RootNamespace>MsysgitWrapper</RootNamespace>
+    <AssemblyName>MsysgitWrapper</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
