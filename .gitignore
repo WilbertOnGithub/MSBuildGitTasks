@@ -1,4 +1,5 @@
 *.suo
+*.user
 *.*~
 [Tt]humbs.db
 
