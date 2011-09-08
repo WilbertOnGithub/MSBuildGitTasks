@@ -4,8 +4,6 @@
 	<UsingTask AssemblyFile="$(MSBuildProjectDirectory)\MsysgitWrapper\bin\Debug\MsysgitWrapper.dll" TaskName="Clone" />
 
 	<Target Name="demo">
-		<Clone RepositoryToClone="c:\data\projects\rekeningoverzicht" TargetDirectory="c:\temp" />
-
-		<!-- <Message Text ="From Task: $(PropFromTask)" /> -->
+		<Clone RepositoryToClone="c:\data\projects\rekeningoverzicht" TargetDirectory="c:\temp\rekeningoverzicht" BranchToSwitchTo="ReleaseToOri" />
 	</Target>
 </Project>
