@@ -7,10 +7,11 @@ using Microsoft.Build.Utilities;
 using Microsoft.Build.Framework;
 using Microsoft.Win32;
 
-namespace MsysGit
+namespace MsysGitWrapper
 {
     /// <summary>
     /// MSBuild task that mimics the 'git clone' functionality.
+    /// With this task, you can clone a repository and optionally switch to a specified branch.
     /// </summary>
     public class Clone : ToolTask
     {
