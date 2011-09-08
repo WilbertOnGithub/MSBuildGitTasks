@@ -41,21 +41,6 @@ namespace MsysGit
         public string TargetDirectory { get; set; }
 
         /// <summary>
-        /// Indicates whether all task parameters are valid.
-        /// </summary>
-        /// <returns>
-        /// true if all task parameters are valid; otherwise, false.
-        /// </returns>
-        protected override bool ValidateParameters()
-        {
-            // Check the following:
-            // Is targetdirectory an empty directory?
-
-            return base.ValidateParameters();
-        }
-
-
-        /// <summary>
         /// Returns the fully qualified path to the executable file.
         /// </summary>
         /// <returns>
@@ -70,9 +55,6 @@ namespace MsysGit
             {
                 if (key != null)
                 {
-
-                    Log.LogMessage(MessageImportance.Low, string.Format("Found an installed msysgit. Version: {0}", "bla"));
-
                     string version = key.GetValue ("DisplayName").ToString();
                     if (version != null)
                     {
@@ -118,7 +100,7 @@ namespace MsysGit
 
             builder.AppendSwitch("clone");
 
-            if (! string.IsNullOrEmpty(BranchToSwitchTo))
+            if (!string.IsNullOrEmpty(BranchToSwitchTo))
             {
                 builder.AppendSwitch(string.Format("-b {0}", BranchToSwitchTo));
             }
