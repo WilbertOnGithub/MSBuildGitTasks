@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Checkout.cs" />
     <Compile Include="Clone.cs" />
+    <Compile Include="Locator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
