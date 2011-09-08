@@ -48,6 +48,9 @@ namespace MsysGit
         /// </returns>
         protected override bool ValidateParameters()
         {
+            // Check the following:
+            // Is targetdirectory an empty directory?
+
             return base.ValidateParameters();
         }
 
@@ -67,6 +70,9 @@ namespace MsysGit
             {
                 if (key != null)
                 {
+
+                    Log.LogMessage(MessageImportance.Low, string.Format("Found an installed msysgit. Version: {0}", "bla"));
+
                     string version = key.GetValue ("DisplayName").ToString();
                     if (version != null)
                     {
@@ -108,38 +114,19 @@ namespace MsysGit
         /// </returns>
         protected override string GenerateCommandLineCommands()
         {
-            //CommandLineBuilder builder = new CommandLineBuilder();
+            CommandLineBuilder builder = new CommandLineBuilder();
 
-            //// We don't need the tool's logo information shown
-            //builder.AppendSwitch("/nologo");
+            builder.AppendSwitch("clone");
 
-            //string targetType = Bag["TargetType"] as string;
-            //// Be explicit with our switches
-            //if (targetType != null)
-            //{
-            //    if (String.Compare(targetType, "DLL", true) == 0)
-            //    {
-            //        builder.AppendSwitch("/DLL");
-            //    }
-            //    else if (String.Compare(targetType, "EXE", true) == 0)
-            //    {
-            //        builder.AppendSwitch("/EXE");
-            //    }
-            //    else
-            //    {
-            //        Log.LogWarning("Invalid TargetType (valid values are DLL and EXE) specified: {0}", targetType);
-            //    }
-            //}
+            if (! string.IsNullOrEmpty(BranchToSwitchTo))
+            {
+                builder.AppendSwitch(string.Format("-b {0}", BranchToSwitchTo));
+            }
 
-            //// Add the filename that we want the tool to process
-            //builder.AppendFileNameIfNotNull(Bag["Source"] as ITaskItem);
+            builder.AppendSwitch(RepositoryToClone);
+            builder.AppendSwitch(TargetDirectory);
 
-            //// Log a High importance message stating the file that we are assembling
-            //Log.LogMessage(MessageImportance.High, "Assembling {0}", Bag["Source"]);
-
-            //// We have all of our switches added, return the commandline as a string
-            //return builder.ToString();
-            return string.Empty;
+            return builder.ToString();
         }
     }
 }
