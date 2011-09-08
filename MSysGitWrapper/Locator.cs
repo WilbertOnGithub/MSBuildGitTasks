@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 using Microsoft.Build.Framework;
-using Microsoft.Win32;
 using Microsoft.Build.Utilities;
+using Microsoft.Win32;
 
 namespace MsysgitWrapper
 {
