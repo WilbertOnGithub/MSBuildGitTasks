@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
 
@@ -65,7 +66,18 @@ namespace MsysgitWrapper
         /// <param name="messageImportance">A value of <see cref="T:Microsoft.Build.Framework.MessageImportance"/> that indicates the importance level with which to log the message.</param>
         protected override void LogEventsFromTextOutput(string singleLine, MessageImportance messageImportance)
         {
-            //Regular expression to catch a SHA.
+            // Match any hexidecimal string that is 40 characters long, ie. a SHA.
+            string pattern = "[0123456789aAbBcCdDeEfF]{40}";
+
+            Match match = Regex.Match(singleLine, pattern);
+            if (match.Success)
+            {
+                _SHA = match.Value;
+            }
+            else
+            {
+                Log.LogWarning(String.Format("Could not parse the SHA from the following output: {0}", singleLine));
+            }
 
             base.LogEventsFromTextOutput(singleLine, messageImportance);
         }
