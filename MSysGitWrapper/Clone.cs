@@ -12,26 +12,13 @@ namespace MsysGit
     /// </summary>
     public class Clone : ToolTask
     {
-        string _branchToSwitchTo;
-
         /// <summary>
         /// Gets or sets the branch to switch to.
-        /// If no branch has been entered, default to the branch 'master'.
         /// </summary>
         /// <value>
         /// The branch to switch to.
         /// </value>
-        public string BranchToSwitchTo
-        {
-            get 
-            {
-                return (_branchToSwitchTo == string.Empty) ? "master" : _branchToSwitchTo;
-            }
-            set 
-            { 
-                _branchToSwitchTo = value; 
-            }
-        }
+        public string BranchToSwitchTo { get; set; }
 
         /// <summary>
         /// Gets or sets the repository to clone.
