@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="demo" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<UsingTask AssemblyFile="$(MSBuildProjectDirectory)\MsysgitWrapper\bin\Debug\MsysgitWrapper.dll" TaskName="Clone" />
+	<UsingTask AssemblyFile="$(MSBuildProjectDirectory)\MsysgitWrapper\bin\Debug\MsysgitWrapper.dll" TaskName="Checkout" />
+  <UsingTask AssemblyFile="$(MSBuildProjectDirectory)\MsysgitWrapper\bin\Debug\MsysgitWrapper.dll" TaskName="Head" />
+
+  <Target Name="demo">
+    <!--
+		<Clone RepositoryToClone="c:\data\projects\rekeningoverzicht" TargetDirectory="c:\temp\rekeningoverzicht" BranchToSwitchTo="ReleaseToOri" />
+    -->
+    <!-- 
+    <Checkout LocalRepository="c:\data\projects\rekeningoverzicht" SwitchTo="HEAD~1" />
+    -->
+    <Head LocalRepository="c:\data\projects\rekeningoverzicht">
+      <Output PropertyName="PropFromTask" TaskParameter="SHA" />
+    </Head>
+
+    <Message Text ="From Task: $(PropFromTask)" />
+  </Target>
+
+</Project>
