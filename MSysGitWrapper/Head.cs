@@ -8,15 +8,24 @@ namespace MsysgitWrapper
     /// <summary>
     /// MSBuild task that mimics the 'git rev-parse' functionality.
     /// Given a specific local repository, this task will return the SHA of the head. 
-    /// This is necessary if you want to include against what SHA you have built.
+    /// This is necessary if you want to include in your build logfile against what SHA you have built.
     /// </summary>
     public class Head : ToolTask
     {
         private string _SHA;
 
+        /// <summary>
+        /// Gets or sets the local repository on where to get the latest SHA.
+        /// </summary>
+        /// <value>
+        /// The local repository.
+        /// </value>
         [Required]
         public string LocalRepository { get; set; }
 
+        /// <summary>
+        /// Gets the SHA of the latest commit in the given repository.
+        /// </summary>
         [Output]
         public string SHA
         {
