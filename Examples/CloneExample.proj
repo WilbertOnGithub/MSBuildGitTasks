@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+	MSBuild project file that shows how to use the Clone custom task to clone a repository.
+	
+	Clone tasks uses the following parameters:
+	- RepositoryToClone 
+		This is the repository you wish to clone. This can be an URL 
+		(ie. https://WilbertOnGithub@github.com/WilbertOnGithub/MSBuild-msysgitwrapper.git) or a local Git repository.
+	- TargetDirectory 
+		The directory where you want to put your local clone. 
+	- BranchToSwitchTo (optional)
+		A branch you want to switch to. If you do not use this parameter, git will always default to master.
+-->
+
+<Project DefaultTargets="demo" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<UsingTask AssemblyFile="$(MSBuildProjectDirectory)\MsysgitWrapper\bin\Release\MsysgitWrapper.dll" TaskName="Clone" />
+
+	<Target Name="demo">
+		<Clone RepositoryToClone="https://WilbertOnGithub@github.com/WilbertOnGithub/MSBuild-msysgitwrapper.git" 
+			   TargetDirectory="c:\sometemporarydirsomewhere" 
+			   BranchToSwitchTo="master" />
+	</Target>
+
+</Project>

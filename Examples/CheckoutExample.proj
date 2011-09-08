@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+	MSBuild project file that shows how to use the Checkout task to checkout a specific branch or SHA.
+	
+	Checkout task uses the following parameters:
+-->
+
+<Project DefaultTargets="demo" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<UsingTask AssemblyFile="$(MSBuildProjectDirectory)\MsysgitWrapper\bin\Release\MsysgitWrapper.dll" TaskName="Checkout" />
+
+	<Target Name="demo">
+		<Checkout RepositoryToClone="https://WilbertOnGithub@github.com/WilbertOnGithub/MSBuild-msysgitwrapper.git"
+			   TargetDirectory="c:\sometemporarydirsomewhere"
+			   BranchToSwitchTo="master" />
+	</Target>
+
+</Project>
