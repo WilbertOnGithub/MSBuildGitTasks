@@ -1,0 +1,20 @@
+MsysgitWrapper is a set of MSBuild tasks to work with Git repositories.
+
+It is (as the name suggests) a thin wrapper around msysgit (http://code.google.com/p/msysgit/). 
+This means that msysgit *must* be installed on your build computer. If not, these tasks will fail.
+
+Currently the following tasks are declared:
+
+- Clone
+  Clone a Git repository
+- Checkout
+  Switch to a specific branch or SHA in a local Git repository.
+- Head
+  Returns the latest SHA from the current branch in a local Git repository. 
+
+See for examples the 'examples' directory. Tested against msysgit version 1.7.6.
+
+MsysgitWrapper is released under a GPL3 license.
+
+Happy coding!
+Wilbert van Dolleweerd
