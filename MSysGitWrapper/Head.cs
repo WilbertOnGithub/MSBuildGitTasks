@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2011 Wilbert van Dolleweerd
+ * Copyright 2011 Wilbert van Dolleweerd (wilbert@arentheym.com)
  * This file is part of the MsysgitWrapper project
  *
  * MsysgitWrapper is free software: you can redistribute it and/or modify
