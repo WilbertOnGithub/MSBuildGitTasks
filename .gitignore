@@ -2,6 +2,7 @@
 *.user
 *.*~
 [Tt]humbs.db
+StyleCop.Cache
 
 # Ignore the following directories
 [Bb]in/
