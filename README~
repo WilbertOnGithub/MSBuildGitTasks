@@ -1,6 +1,6 @@
 MsysgitWrapper is a set of MSBuild tasks to work with Git repositories.
 
-See also http://walkingthestack.blogspot.com/2011/09/custom-msbuild-tasks-to-clone-git.html 
+See also http://walkingthestack.wordpress.com/2011/09/09/custom-msbuild-tasks-to-clone-git-repositories-and-more/
 
 It is (as the name suggests) a thin wrapper around msysgit (http://code.google.com/p/msysgit/). 
 This means that msysgit *must* be installed on your build computer. If not, these tasks will fail.
