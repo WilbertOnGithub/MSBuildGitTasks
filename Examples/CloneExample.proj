@@ -15,12 +15,11 @@
 
 <Project DefaultTargets="demo" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-	<UsingTask AssemblyFile="$(MSBuildProjectDirectory)\MsysgitWrapper\bin\Release\MsysgitWrapper.dll" TaskName="Clone" />
+	<UsingTask AssemblyFile="$(MSBuildProjectDirectory)\..\GitTasks\bin\Release\GitTasks.dll" TaskName="Clone" />
 
 	<Target Name="demo">
 		<Clone RepositoryToClone="https://WilbertOnGithub@github.com/WilbertOnGithub/MSBuild-msysgitwrapper.git" 
-			   TargetDirectory="c:\sometemporarydirsomewhere" 
-			   BranchToSwitchTo="master" />
+			   TargetDirectory="c:\temp\sometemporarydirsomewhere" />
 	</Target>
 
 </Project>
