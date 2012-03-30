@@ -8,3 +8,4 @@ StyleCop.Cache
 [Bb]in/
 [Oo]bj/
 _ReSharper*/
+packages/
