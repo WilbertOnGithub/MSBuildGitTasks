@@ -36,6 +36,8 @@
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\packages\ngit.1.0.0.20110815\lib\net35\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="Mono.Posix">
       <HintPath>..\packages\ngit.1.0.0.20110815\lib\net35\Mono.Posix.dll</HintPath>
     </Reference>
