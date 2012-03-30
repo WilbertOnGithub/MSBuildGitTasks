@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using Microsoft.Build.Framework;
@@ -30,16 +31,33 @@ namespace GitTasks
 		[Required]
 		public string TargetDirectory { get; set; }
 
+		/// <summary>
+		/// Gets or sets the branch to switch to.
+		/// </summary>
+		/// <value>
+		/// The branch to switch to.
+		/// </value>
+		public string BranchToSwitchTo { get; set; }
+
 		public override bool Execute()
 		{
 			try
 			{
-				Git repo = Git.CloneRepository().
+				Log.LogMessage(MessageImportance.Normal, string.Format("Cloning {0} to {1}", RepositoryToClone, TargetDirectory));
+
+				Git clone = Git.CloneRepository().
 					SetURI(RepositoryToClone).
 					SetDirectory(new FilePath(TargetDirectory)).
 					SetBare(false).
 					SetCloneAllBranches(true).
 					Call();
+				
+				if (!string.IsNullOrEmpty(BranchToSwitchTo))
+				{
+					Log.LogMessage(MessageImportance.Normal, string.Format("Checking out branch {0}", BranchToSwitchTo));
+
+					clone.Checkout().SetName(BranchToSwitchTo).Call();
+				}
 			}
 			catch (Exception ex)
 			{
