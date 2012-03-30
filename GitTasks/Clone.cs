@@ -54,7 +54,7 @@ namespace GitTasks
 				
 				if (!string.IsNullOrEmpty(BranchToSwitchTo) && BranchToSwitchTo.ToLower() != "master"))
 				{
-					Log.LogMessage(MessageImportance.Normal, string.Format("Checking out branch '{0}'", BranchToSwitchTo));
+					Log.LogMessage(MessageImportance.Normal, string.Format("Checking out branch/SHA '{0}'", BranchToSwitchTo));
 
 					clone.Checkout().SetName(BranchToSwitchTo).Call();
 				}
