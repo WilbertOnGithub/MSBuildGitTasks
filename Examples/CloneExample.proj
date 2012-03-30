@@ -18,8 +18,9 @@
 	<UsingTask AssemblyFile="$(MSBuildProjectDirectory)\..\GitTasks\bin\Release\GitTasks.dll" TaskName="Clone" />
 
 	<Target Name="demo">
-		<Clone RepositoryToClone="https://WilbertOnGithub@github.com/WilbertOnGithub/MSBuild-msysgitwrapper.git" 
-			   TargetDirectory="c:\temp\sometemporarydirsomewhere" />
+		<Clone RepositoryToClone="https://WilbertOnGithub@github.com/WilbertOnGithub/MSBuild-msysgitwrapper.git"
+			   TargetDirectory="c:\temp\sometemporarydirsomewhere"
+			   BranchToSwitchTo="master" />
 	</Target>
 
 </Project>
