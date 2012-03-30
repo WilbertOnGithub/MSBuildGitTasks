@@ -7,3 +7,4 @@ StyleCop.Cache
 # Ignore the following directories
 [Bb]in/
 [Oo]bj/
+_ReSharper*/
