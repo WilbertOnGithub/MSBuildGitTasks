@@ -20,7 +20,11 @@
 	<Target Name="demo">
 		<Clone RepositoryToClone="https://WilbertOnGithub@github.com/WilbertOnGithub/MSBuild-msysgitwrapper.git"
 			   TargetDirectory="c:\temp\sometemporarydirsomewhere"
-			   BranchToSwitchTo="master" />
+			   BranchToSwitchTo="b6429392ed3ebf30098b07475a5b4fe089cb29eb" >
+			<Output PropertyName="PropFromTask" TaskParameter="SHA" />
+		</Clone>
+
+		<Message Text ="From Task: $(PropFromTask)" />
 	</Target>
 
 </Project>
