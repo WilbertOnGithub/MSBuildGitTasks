@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{447C4E8D-215B-4452-BF9C-FE683ABE99B1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{447C4E8D-215B-4452-BF9C-FE683ABE99B1}"
 	ProjectSection(SolutionItems) = preProject
 		Examples\CloneExample.proj = Examples\CloneExample.proj
 	EndProjectSection
