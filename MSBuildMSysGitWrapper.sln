@@ -6,7 +6,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{447C4E8D-215B-4452-BF9C-FE683ABE99B1}"
 	ProjectSection(SolutionItems) = preProject
 		Examples\CloneExample.proj = Examples\CloneExample.proj
-		Examples\HeadExample.proj = Examples\HeadExample.proj
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{06DAA520-BD0D-4926-BB8C-4C854733CF4E}"
