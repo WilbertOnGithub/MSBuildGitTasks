@@ -1,12 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{447C4E8D-215B-4452-BF9C-FE683ABE99B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitTasks", "GitTasks\GitTasks.csproj", "{692CF2EA-13FC-473B-8BFC-DD3B66A5C9A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{07A84488-80F5-4B9F-82B4-B16FAB0FD988}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{0CC64A6B-8529-4B42-AEBB-054F2DA0A905}"
 	ProjectSection(SolutionItems) = preProject
 		Examples\CloneExample.proj = Examples\CloneExample.proj
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitTasks", "GitTasks\GitTasks.csproj", "{692CF2EA-13FC-473B-8BFC-DD3B66A5C9A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +20,10 @@ Global
 		{692CF2EA-13FC-473B-8BFC-DD3B66A5C9A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{692CF2EA-13FC-473B-8BFC-DD3B66A5C9A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{692CF2EA-13FC-473B-8BFC-DD3B66A5C9A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07A84488-80F5-4B9F-82B4-B16FAB0FD988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07A84488-80F5-4B9F-82B4-B16FAB0FD988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07A84488-80F5-4B9F-82B4-B16FAB0FD988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07A84488-80F5-4B9F-82B4-B16FAB0FD988}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
