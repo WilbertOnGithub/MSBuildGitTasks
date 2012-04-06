@@ -6,7 +6,7 @@
 	Clone task uses the following parameters:
 	- RepositoryToClone (required)
 		This is the repository you wish to clone. This can be an URL 
-		(ie. http://github.com/WilbertOnGithub/MSBuild-msysgitwrapper.git) or a local Git repository 
+		(ie. https://WilbertOnGithub@github.com/WilbertOnGithub/MSBuildGitTasks.git) or a local Git repository 
 		(ie. c:\projects\repositorytoclone).
 	- TargetDirectory (required)
 		The directory where you want to put your local clone. 
@@ -26,7 +26,7 @@
 	<UsingTask AssemblyFile="$(MSBuildProjectDirectory)\..\GitTasks\bin\Release\GitTasks.dll" TaskName="Clone" />
 
 	<Target Name="demo">
-		<Clone RepositoryToClone="http://github.com/WilbertOnGithub/MSBuild-msysgitwrapper.git"
+		<Clone RepositoryToClone="https://WilbertOnGithub@github.com/WilbertOnGithub/MSBuildGitTasks.git"
 			   TargetDirectory="c:\temp\sometemporarydirsomewhere"
 			   BranchToSwitchTo="b6429392ed3ebf30098b07475a5b4fe089cb29eb" >
 			<Output PropertyName="PropFromTask" TaskParameter="SHA" />
