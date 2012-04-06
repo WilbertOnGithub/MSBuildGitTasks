@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{447C4E8D-215B-4452-BF9C-FE683ABE99B1}"
+	ProjectSection(SolutionItems) = preProject
+		Examples\CloneExample.proj = Examples\CloneExample.proj
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitTasks", "GitTasks\GitTasks.csproj", "{692CF2EA-13FC-473B-8BFC-DD3B66A5C9A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{692CF2EA-13FC-473B-8BFC-DD3B66A5C9A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{692CF2EA-13FC-473B-8BFC-DD3B66A5C9A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{692CF2EA-13FC-473B-8BFC-DD3B66A5C9A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{692CF2EA-13FC-473B-8BFC-DD3B66A5C9A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
