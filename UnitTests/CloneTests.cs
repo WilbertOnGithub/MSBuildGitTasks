@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace UnitTests
+namespace GitTasks.Tests
 {
-	public class Class1
+	public class CloneTests
 	{
 	}
 }
