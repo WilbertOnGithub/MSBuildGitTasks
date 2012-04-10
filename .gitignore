@@ -3,6 +3,7 @@
 *.*~
 [Tt]humbs.db
 StyleCop.Cache
+*.dotCover
 
 # Ignore the following directories
 [Bb]in/
