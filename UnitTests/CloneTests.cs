@@ -52,7 +52,7 @@ namespace GitTasks.Tests
 			
 			// Assert
 			mock.Verify(git => git.Clone(msbuildCloneTask.RepositoryToClone, msbuildCloneTask.TargetDirectory), Times.Once());
-			mock.Verify(git => git.GetLatestSHA(msbuildCloneTask.TargetDirectory), Times.Once());
+			mock.Verify(git => git.GetLatestSha(msbuildCloneTask.TargetDirectory), Times.Once());
 		}
 
 		/// <summary>
@@ -78,7 +78,7 @@ namespace GitTasks.Tests
 			// Assert
 			mock.Verify(git => git.Clone(msbuildCloneTask.RepositoryToClone, msbuildCloneTask.TargetDirectory), Times.Once());
 			mock.Verify(git => git.CheckoutBranch(msbuildCloneTask.TargetDirectory, msbuildCloneTask.BranchToSwitchTo), Times.Once());
-			mock.Verify(git => git.GetLatestSHA(msbuildCloneTask.TargetDirectory), Times.Once());
+			mock.Verify(git => git.GetLatestSha(msbuildCloneTask.TargetDirectory), Times.Once());
 		}
 
 		/// <summary>

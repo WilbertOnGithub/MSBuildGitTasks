@@ -39,7 +39,7 @@ namespace GitTasks
 		/// </summary>
 		/// <param name="localRepository">The local Git repository.</param>
 		/// <returns>The SHA of the latest commit</returns>
-		public string GetLatestSHA(string localRepository)
+		public string GetLatestSha(string localRepository)
 		{
 			ObjectId latestCommit = Git.Open(localRepository).
 										Log().

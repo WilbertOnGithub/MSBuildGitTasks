@@ -7,7 +7,7 @@ namespace GitTasks
 	public class Clone : Task
 	{
 		private readonly IGitFacade _gitFacade;
-		private string _SHA;
+		private string _sha;
 
 		public Clone (IGitFacade facade)
 		{
@@ -43,7 +43,7 @@ namespace GitTasks
 		[Output]
 		public string SHA
 		{
-			get { return _SHA; }
+			get { return _sha; }
 		}
 
 		/// <summary>
@@ -73,8 +73,8 @@ namespace GitTasks
 					Log.LogMessage(MessageImportance.Normal, string.Format("Checking out branch/SHA '{0}'", BranchToSwitchTo));
 				}
 
-				_SHA = _gitFacade.GetLatestSHA(TargetDirectory);
-				Log.LogMessage(MessageImportance.Normal, string.Format("Latest commit is '{0}'", _SHA));
+				_sha = _gitFacade.GetLatestSha(TargetDirectory);
+				Log.LogMessage(MessageImportance.Normal, string.Format("Latest commit is '{0}'", _sha));
 			}
 			catch (Exception ex)
 			{
