@@ -19,8 +19,8 @@ namespace GitTasks.Tests
 			{
 				// Mock away IBuildEngine cause we are not interested in the logging functionality.
 				BuildEngine = new Mock<IBuildEngine>().Object,
-				RepositoryToClone = "",
-				TargetDirectory = ""
+				RepositoryToClone = string.Empty,
+				TargetDirectory = string.Empty
 			};
 
 			// Act
@@ -43,8 +43,8 @@ namespace GitTasks.Tests
 										{
 											// Mock away IBuildEngine cause we are not interested in the logging functionality.
 											BuildEngine = new Mock<IBuildEngine>().Object, 
-											RepositoryToClone = "", 
-											TargetDirectory = ""
+											RepositoryToClone = string.Empty,
+											TargetDirectory = string.Empty
 										};
 
 			// Act
