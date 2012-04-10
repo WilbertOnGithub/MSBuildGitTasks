@@ -1,20 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
-using NGit;
-using NGit.Api;
-using NGit.Revwalk;
-using Sharpen;
 
 namespace GitTasks
 {
 	public class Clone : Task
 	{
-		private string _SHA;
+		private readonly IGitFacade _gitFacade;
+		private string _sha;
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Clone"/> class.
+		/// </summary>
+		/// <param name="facade">IGitFacade interface</param>
+		/// <remarks>Added to be able to unit test this class using a mock</remarks>
+		public Clone (IGitFacade facade)
+		{
+			_gitFacade = facade;
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Clone"/> class.
+		/// </summary>
+		/// <remarks>When no parameter is used in the constructor, instantiate the default</remarks>
+		public Clone()
+		{
+			_gitFacade = new NGit();
+		}
 
 		/// <summary>
 		/// Gets or sets the repository to clone.
@@ -40,7 +52,7 @@ namespace GitTasks
 		[Output]
 		public string SHA
 		{
-			get { return _SHA; }
+			get { return _sha; }
 		}
 
 		/// <summary>
@@ -51,30 +63,27 @@ namespace GitTasks
 		/// </value>
 		public string BranchToSwitchTo { get; set; }
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns>
+		/// true if the task successfully executed; otherwise, false.
+		/// </returns>
 		public override bool Execute()
 		{
 			try
 			{
+				_gitFacade.Clone(RepositoryToClone, TargetDirectory);
 				Log.LogMessage(MessageImportance.Normal, string.Format("Cloning {0} to {1}", RepositoryToClone, TargetDirectory));
-
-				Git clone = Git.CloneRepository().
-					SetURI(RepositoryToClone).
-					SetDirectory(new FilePath(TargetDirectory)).
-					SetBare(false).
-					SetCloneAllBranches(true).
-					Call();
 				
 				if (!string.IsNullOrEmpty(BranchToSwitchTo) && BranchToSwitchTo.ToLower() != "master")
 				{
+					_gitFacade.CheckoutBranch(TargetDirectory, BranchToSwitchTo);
 					Log.LogMessage(MessageImportance.Normal, string.Format("Checking out branch/SHA '{0}'", BranchToSwitchTo));
-
-					clone.Checkout().SetName(BranchToSwitchTo).Call();
 				}
 
-				ObjectId latestCommit = clone.Log().GetRepository().Resolve(Constants.HEAD);
-				_SHA = latestCommit.Name;
-
-				Log.LogMessage(MessageImportance.Normal, string.Format("Latest commit is '{0}'", latestCommit.Name));
+				_sha = _gitFacade.GetLatestSha(TargetDirectory);
+				Log.LogMessage(MessageImportance.Normal, string.Format("Latest commit is '{0}'", _sha));
 			}
 			catch (Exception ex)
 			{
@@ -84,5 +93,6 @@ namespace GitTasks
 
 			return true;
 		}
+
 	}
 }
