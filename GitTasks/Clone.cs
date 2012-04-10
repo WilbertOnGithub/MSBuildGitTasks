@@ -9,11 +9,20 @@ namespace GitTasks
 		private readonly IGitFacade _gitFacade;
 		private string _sha;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Clone"/> class.
+		/// </summary>
+		/// <param name="facade">IGitFacade interface</param>
+		/// <remarks>Added to be able to unit test this class using a mock</remarks>
 		public Clone (IGitFacade facade)
 		{
 			_gitFacade = facade;
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Clone"/> class.
+		/// </summary>
+		/// <remarks>When no parameter is used in the constructor, instantiate the default</remarks>
 		public Clone()
 		{
 			_gitFacade = new NGit();
