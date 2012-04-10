@@ -51,30 +51,29 @@ namespace GitTasks
 		/// </value>
 		public string BranchToSwitchTo { get; set; }
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns>
+		/// true if the task successfully executed; otherwise, false.
+		/// </returns>
 		public override bool Execute()
 		{
 			try
 			{
-				Log.LogMessage(MessageImportance.Normal, string.Format("Cloning {0} to {1}", RepositoryToClone, TargetDirectory));
+				var git = new NGit();
 
-				Git clone = Git.CloneRepository().
-					SetURI(RepositoryToClone).
-					SetDirectory(new FilePath(TargetDirectory)).
-					SetBare(false).
-					SetCloneAllBranches(true).
-					Call();
+				git.Clone(RepositoryToClone, TargetDirectory);
+				Log.LogMessage(MessageImportance.Normal, string.Format("Cloning {0} to {1}", RepositoryToClone, TargetDirectory));
 				
 				if (!string.IsNullOrEmpty(BranchToSwitchTo) && BranchToSwitchTo.ToLower() != "master")
 				{
+					git.CheckoutBranch(TargetDirectory, BranchToSwitchTo);
 					Log.LogMessage(MessageImportance.Normal, string.Format("Checking out branch/SHA '{0}'", BranchToSwitchTo));
-
-					clone.Checkout().SetName(BranchToSwitchTo).Call();
 				}
 
-				ObjectId latestCommit = clone.Log().GetRepository().Resolve(Constants.HEAD);
-				_SHA = latestCommit.Name;
-
-				Log.LogMessage(MessageImportance.Normal, string.Format("Latest commit is '{0}'", latestCommit.Name));
+				_SHA = git.GetLatestSHA(TargetDirectory);
+				Log.LogMessage(MessageImportance.Normal, string.Format("Latest commit is '{0}'", _SHA));
 			}
 			catch (Exception ex)
 			{
@@ -84,5 +83,6 @@ namespace GitTasks
 
 			return true;
 		}
+
 	}
 }
