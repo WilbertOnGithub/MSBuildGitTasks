@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Build.Framework;
 using NUnit.Framework;
 using Moq;
-using GitTasks;
 
 namespace GitTasks.Tests
 {

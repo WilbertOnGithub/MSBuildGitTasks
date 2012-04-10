@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
-using NGit;
-using NGit.Api;
-using NGit.Revwalk;
-using Sharpen;
 
 namespace GitTasks
 {
