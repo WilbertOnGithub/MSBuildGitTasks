@@ -14,7 +14,18 @@ namespace GitTasks
 {
 	public class Clone : Task
 	{
+		private readonly IGitFacade _gitFacade;
 		private string _SHA;
+
+		public Clone (IGitFacade facade)
+		{
+			_gitFacade = facade;
+		}
+
+		public Clone()
+		{
+			_gitFacade = new NGit();
+		}
 
 		/// <summary>
 		/// Gets or sets the repository to clone.
@@ -61,18 +72,16 @@ namespace GitTasks
 		{
 			try
 			{
-				var git = new NGit();
-
-				git.Clone(RepositoryToClone, TargetDirectory);
+				_gitFacade.Clone(RepositoryToClone, TargetDirectory);
 				Log.LogMessage(MessageImportance.Normal, string.Format("Cloning {0} to {1}", RepositoryToClone, TargetDirectory));
 				
 				if (!string.IsNullOrEmpty(BranchToSwitchTo) && BranchToSwitchTo.ToLower() != "master")
 				{
-					git.CheckoutBranch(TargetDirectory, BranchToSwitchTo);
+					_gitFacade.CheckoutBranch(TargetDirectory, BranchToSwitchTo);
 					Log.LogMessage(MessageImportance.Normal, string.Format("Checking out branch/SHA '{0}'", BranchToSwitchTo));
 				}
 
-				_SHA = git.GetLatestSHA(TargetDirectory);
+				_SHA = _gitFacade.GetLatestSHA(TargetDirectory);
 				Log.LogMessage(MessageImportance.Normal, string.Format("Latest commit is '{0}'", _SHA));
 			}
 			catch (Exception ex)
