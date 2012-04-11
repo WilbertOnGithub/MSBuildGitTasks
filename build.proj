@@ -5,19 +5,19 @@
 
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
 
-	<ItemGroup>
-		<SolutionsToBuild Include="MSBuildGitTasks.sln" />
-	</ItemGroup>
-	
-	<Target Name="Build">
-		<MSBuild Projects="@(SolutionsToBuild)" Targets="Build" Properties="Configuration=Release;Platform=Any CPU" />
-	</Target>
-	
-	<Target Name="Clean">
-		<MSBuild Projects="@(SolutionsToBuild)" Targets="Clean" />
-	</Target>
-	
-	<Target Name="Rebuild" DependsOnTargets="Clean;Build" />
-	
+    <ItemGroup>
+        <SolutionsToBuild Include="MSBuildGitTasks.sln" />
+    </ItemGroup>
+    
+    <Target Name="Build">
+        <MSBuild Projects="@(SolutionsToBuild)" Targets="Build" Properties="Configuration=Release;Platform=Any CPU" />
+    </Target>
+    
+    <Target Name="Clean">
+        <MSBuild Projects="@(SolutionsToBuild)" Targets="Clean" />
+    </Target>
+    
+    <Target Name="Rebuild" DependsOnTargets="Clean;Build" />
+    
 </Project>
 
